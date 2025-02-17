@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".views.HomeActivity">
+
+        <!-- AppBarLayout with Toolbar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/mapping_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mapping_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue"
+                app:navigationIcon="@drawable/ic_arrow_back_white">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Container RFID Mapping"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Main Body Section (Dropdown and RFID Scan Fields) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBody"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@id/clbottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mapping_appbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Dropdown Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlDropdown"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Select Location ID"
+                    app:endIconMode="dropdown_menu"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/edDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10sp"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- RFID Scan Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlRfid"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+               
+                    android:inputType="textCapCharacters"
+                    android:textColorHint="@color/grey"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tlDropdown">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edRfid"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:longClickable="false"
+                        android:padding="10sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Row 2 RFID and CTR NO fields -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAdditionalFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/clFields"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <!-- RFID Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlRfid2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="RFID"
+                    android:inputType="textCapCharacters"
+                    android:textColorHint="@color/grey"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toStartOf="@+id/tllocIDList2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edRfid2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:padding="10sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- CTR No Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tllocIDList2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:hint="CTR No"
+                    android:inputType="textCapCharacters"
+                    android:textColorHint="@color/grey"
+                    app:endIconMode="dropdown_menu"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tlRfid2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteSelectAssetType2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:padding="10sp"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Row 3 RFID and CTR NO fields -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAdditionalFields2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/clAdditionalFields"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <!-- RFID Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlRfid3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="RFID"
+                    android:inputType="textCapCharacters"
+                    android:textColorHint="@color/grey"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toStartOf="@+id/tllocIDList3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edRfid3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:padding="10sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- CTR No Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tllocIDList3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:hint="CTR No"
+                    android:inputType="textCapCharacters"
+                    android:textColorHint="@color/grey"
+                    app:endIconMode="dropdown_menu"
+                    app:hintTextAppearance="@style/CustomHintTextAppearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tlRfid3"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteSelectAssetType3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:padding="10sp"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Bottom Buttons Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clbottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clBody">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:backgroundTint="@color/grey"
+                android:padding="10sp"
+                android:text="Clear All"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnSubmit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:padding="10sp"
+                android:popupBackground="@android:color/transparent"
+
+                android:text="Submit"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnClear"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

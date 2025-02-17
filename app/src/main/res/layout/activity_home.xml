@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/homeAppbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/parkIn_vehicle_toolbar"
+                android:layout_width="match_parent"
+                app:titleTextColor="@color/white"
+                android:layout_height="?attr/actionBarSize">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <TextView
+                        android:id="@+id/tvHomeTitleActionBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Home"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/tv_size_18"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                    <ImageView
+                        android:id="@+id/settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:scaleType="fitXY"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        android:src="@drawable/setting_baseline"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/logout"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="visible"
+                        android:src="@drawable/ic_logout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvMapDeMap"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_10"
+            android:clickable="true"
+            app:cardCornerRadius="@dimen/dimen_20"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mcvRfidAssetMapping"
+            app:layout_constraintTop_toBottomOf="@id/homeAppbar"
+            app:layout_constraintEnd_toStartOf="@+id/mcvTagNewMapping">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgMapDemap"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="@dimen/dimen_10"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/rfid_asset_mapping"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintBottom_toTopOf="@+id/tvMapDemap"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvMapDemap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="MAPPING"
+                    android:padding="@dimen/dimen_10"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgMapDemap"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvTagNewMapping"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_10"
+            android:clickable="true"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardCornerRadius="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@+id/mcvMapDeMap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mcvTagMerge"
+            app:layout_constraintTop_toBottomOf="@+id/homeAppbar"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgTagNewMapping"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="@dimen/dimen_10"
+                    android:src="@drawable/tag_merge"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_set_dealer_yard_geofence"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_set_dealer_yard_geofence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_10"
+                    android:text="DE-MAPPING"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="@dimen/tv_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgTagNewMapping"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvRfidAssetMapping"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_10"
+            android:clickable="true"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardCornerRadius="@dimen/dimen_20"
+            app:layout_constraintTop_toBottomOf="@+id/mcvMapDeMap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/mcvNewCard"
+            app:layout_constraintEnd_toStartOf="@+id/mcvTagMerge"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgRfidAssetMapping"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/dimen_10"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_trucklocation"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRfidAssetMapping"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvRfidAssetMapping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_10"
+                    android:text="Vehicle \n Detection"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/tv_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgRfidAssetMapping"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvTagMerge"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_10"
+            android:clickable="true"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardCornerRadius="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@+id/mcvRfidAssetMapping"
+            app:layout_constraintTop_toBottomOf="@+id/mcvTagNewMapping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/mcvNewSideCard"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgTagMerge"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/dimen_10"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tag_merge"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_tag_merge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_tag_merge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_10"
+                    android:text="EXIT"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/tv_size_14"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgTagMerge"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvNewCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_10"
+
+            android:clickable="true"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardCornerRadius="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mcvRfidAssetMapping"
+            app:layout_constraintEnd_toStartOf="@+id/mcvNewSideCard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgNewCard"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="@dimen/dimen_10"
+                    android:src="@drawable/truck_wifi_line_icon"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/tvNewCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvNewCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_10"
+                    android:text="Vehicle RFID \n mapping"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    android:textSize="@dimen/tv_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgNewCard"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvNewSideCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:clickable="false"
+
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mcvNewCard"
+            app:layout_constraintTop_toBottomOf="@+id/mcvTagMerge">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imgNewSideCard"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/dimen_10"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_pass"
+
+                    app:layout_constraintBottom_toTopOf="@+id/tvNewSideCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvNewSideCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10"
+                    android:text="NEW SIDE CARD"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_14"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgNewSideCard"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="width_text_table">120dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="large_text">18sp</dimen>
+    <dimen name="tv_size_12">12sp</dimen>
+    <dimen name="tv_size_14">14sp</dimen>
+    <dimen name="tv_size_16">16sp</dimen>
+    <dimen name="tv_size_18">18sp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="medium_text">14sp</dimen>
+    <dimen name="dimen_14">14dp</dimen>
+    <dimen name="ed_text">12sp</dimen>
+    <dimen name="tv_text">11sp</dimen>
+    <dimen name="btn_text">12sp</dimen>
+    <dimen name="tv_heading">18sp</dimen>
+    <dimen name="tv_sub_heading">16sp</dimen>
+</resources>

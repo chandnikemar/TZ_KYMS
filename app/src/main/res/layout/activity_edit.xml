@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!-- AppBar Section -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/Entry_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/exit_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue"
+                app:navigationIcon="@drawable/ic_arrow_back_white">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:text="Exit"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Fields Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_margin="10dp"
+            android:id="@+id/clFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Entry_appbar">
+
+            <!-- Scan RFID -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlRfid"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:hint="Scan RFID"
+                android:inputType="textCapCharacters"
+                android:textColorHint="@color/grey"
+                app:endIconMode="clear_text"
+                app:hintTextAppearance="@style/CustomHintTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edRfid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:padding="10sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Additional Fields Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAdditionalFields2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clFields">
+
+            <!-- RFID -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlRfid3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:enabled="false"
+                android:hint="RFID"
+                android:inputType="textCapCharacters"
+                android:textColorHint="@color/grey"
+                app:hintTextAppearance="@style/CustomHintTextAppearance"
+                app:layout_constraintEnd_toStartOf="@+id/tllocIDList3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tlRfid1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:padding="5sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tllocIDList3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:hint="CTR NO"
+                android:inputType="textCapCharacters"
+                android:enabled="false"
+                app:hintTextAppearance="@style/CustomHintTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tlRfid3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Add a TextInputEditText inside TextInputLayout -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edLocId3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:padding="5sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 3rd Column Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAdditionalFields3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clAdditionalFields2">
+
+
+
+            <!-- LOC ID -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlRfid4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+
+                android:hint="RFID"
+                android:inputType="textCapCharacters"
+                android:textColorHint="@color/grey"
+                app:hintTextAppearance="@style/CustomHintTextAppearance"
+                app:layout_constraintEnd_toStartOf="@+id/tllocIDList4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tlRfid2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:padding="5sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tllocIDList4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:enabled="false"
+                android:hint="CTR NO"
+                android:inputType="textCapCharacters"
+
+                app:hintTextAppearance="@style/CustomHintTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tlRfid4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edLocId4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:padding="5sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Bottom Buttons Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clbottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clAdditionalFields3"
+            app:layout_constraintVertical_bias="0.956">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:backgroundTint="@color/grey"
+                android:padding="10sp"
+                android:text="Clear All"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnSubmit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:padding="10sp"
+                android:text="Submit"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnClear"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
